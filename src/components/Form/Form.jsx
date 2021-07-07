@@ -1,30 +1,35 @@
 import { Component } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 export default class Form extends Component {
-  static defaultProps = {
-    initialContacts: [],
-    initialName: '',
+  state = {
+    contacts: [],
+    name: '',
   };
 
-  state = {
-    contacts: this.initialContacts,
-    name: this.initialName,
-  };
+  nameInputId = uuidv4();
 
   handleInputChange = e => {
     const { name, value } = e.currentTarget;
     this.setState({ [name]: value });
   };
 
-  handleSubmit = () => {};
+  handleSubmit = e => {
+    e.preventDefault();
 
-  // addToContactList = e => {
-  //   this.setState({ contacts: contacts.push() });
-  // };
+    console.log(this.state);
+    this.props.addContacts(this.state);
+
+    this.formReset();
+  };
+
+  formReset = () => {
+    this.setState({ name: '' });
+  };
 
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <label>Name</label>
         <input
           type="text"
