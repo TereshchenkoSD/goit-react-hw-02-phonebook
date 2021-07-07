@@ -1,12 +1,9 @@
-import { Component } from "react";
+import { Component } from 'react';
+
+import Form from './components/Form';
 
 export default class App extends Component {
-  state = {
-    contacts: [],
-    name: "",
-  };
-
   render() {
-    return <div></div>;
+    return <Form />;
   }
 }
