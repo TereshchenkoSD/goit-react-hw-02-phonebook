@@ -1,34 +1,16 @@
 import styled from '@emotion/styled';
 
-export const Form = styled.form`
+export const ContactListItem = styled.li`
   margin-bottom: 20px;
-`;
-
-export const Label = styled.label`
   display: flex;
-  flex-direction: column;
-  max-width: 400px;
-  margin-bottom: 15px;
+  justify-content: space-between;
+  align-items: center;
 `;
 
-export const Input = styled.input`
-  height: 30px;
-
-  border-radius: 4px;
-
-  border: 2px solid lightblue;
-
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.875;
-`;
-
-export const Button = styled.button`
-  display: block;
-
-  min-width: 200px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+export const ContactButton = styled.button`
+  min-width: 150px;
+  padding-top: 2px;
+  padding-bottom: 2px;
 
   border: none;
   border-radius: 4px;
@@ -37,8 +19,8 @@ export const Button = styled.button`
   color: rgba(33, 33, 33, 1);
   background-color: rgba(156, 156, 156, 1);
 
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 500;
   line-height: 1.875;
   letter-spacing: 0.06em;
 
