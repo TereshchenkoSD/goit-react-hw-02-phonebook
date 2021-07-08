@@ -1,10 +1,11 @@
 import { Component } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import PropTypes from 'prop-types';
 
-export default class Form extends Component {
+export default class ContactForm extends Component {
   state = {
-    contacts: [],
     name: '',
+    number: '',
   };
 
   nameInputId = uuidv4();
@@ -17,31 +18,48 @@ export default class Form extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    console.log(this.state);
-    this.props.addContacts(this.state);
+    this.props.onSubmit(this.state);
 
     this.formReset();
   };
 
   formReset = () => {
-    this.setState({ name: '' });
+    this.setState({ name: '', number: '' });
   };
 
   render() {
+    const { name, number } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>Name</label>
-        <input
-          type="text"
-          name="name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
-          required
-          value={this.state.name}
-          onChange={this.handleInputChange}
-        />
+        <label>
+          Name
+          <input
+            type="text"
+            name="name"
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
+            required
+            value={name}
+            onChange={this.handleInputChange}
+          />
+        </label>
+        <label>
+          Number
+          <input
+            type="tel"
+            name="number"
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
+            value={number}
+            onChange={this.handleInputChange}
+          />
+        </label>
         <button type="submit">Add contact</button>
       </form>
     );
   }
 }
+
+ContactForm.propTypes = {
+  onSubmit: PropTypes.func,
+};
