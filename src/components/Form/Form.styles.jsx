@@ -24,7 +24,9 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   min-width: 200px;
   padding-top: 5px;
@@ -52,5 +54,11 @@ export const Button = styled.button`
     background-color: rgba(33, 150, 243, 1);
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
       0px 2px 2px rgba(0, 0, 0, 0.12);
+  }
+
+  & svg {
+    height: 24px;
+    width: 24px;
+    margin-right: 5px;
   }
 `;

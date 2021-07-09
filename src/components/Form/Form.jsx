@@ -2,6 +2,8 @@ import { Component } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import PropTypes from 'prop-types';
 
+import { CgUserAdd } from 'react-icons/cg';
+
 import { Form, Label, Input, Button } from './Form.styles';
 
 export default class ContactForm extends Component {
@@ -56,7 +58,10 @@ export default class ContactForm extends Component {
             onChange={this.handleInputChange}
           />
         </Label>
-        <Button type="submit">Add contact</Button>
+        <Button type="submit">
+          <CgUserAdd />
+          Add contact
+        </Button>
       </Form>
     );
   }

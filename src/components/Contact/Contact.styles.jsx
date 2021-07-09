@@ -8,6 +8,9 @@ export const ContactListItem = styled.li`
 `;
 
 export const ContactButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-width: 150px;
   padding-top: 2px;
   padding-bottom: 2px;
@@ -34,5 +37,11 @@ export const ContactButton = styled.button`
     background-color: rgba(33, 150, 243, 1);
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
       0px 2px 2px rgba(0, 0, 0, 0.12);
+  }
+
+  & svg {
+    height: 18px;
+    width: 18px;
+    margin-right: 5px;
   }
 `;

@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { BsTrash } from 'react-icons/bs';
 
 import { ContactListItem, ContactButton } from './Contact.styles';
 
@@ -7,6 +8,7 @@ const Contact = ({ id, name, number, onDeleteContact }) => {
     <ContactListItem key={id}>
       {name}: {number}
       <ContactButton type="button" onClick={() => onDeleteContact(id)}>
+        <BsTrash />
         Delete
       </ContactButton>
     </ContactListItem>
